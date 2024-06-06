@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Participantes</title>
     <link rel="stylesheet" href="Participantes.css" />
-    <link rel="stylesheet" href="../Main/main.css">
+    <link rel="stylesheet" href="../Main/main.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.1.2/chart.umd.js"></script>
@@ -43,7 +43,7 @@
           <div class="subContainerOptions" id="subContainerOptions">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
+              viewBox="0 0 12 512"
               class="IconNavBarTheme"
               onclick="changeTheme()"
               id="SunIcon"
@@ -123,10 +123,14 @@
         </div>
       </nav>
       <div class="MainComponentsHome" id="MainComponentsHome">
-        <div class="SideBarContainer" id="SideBarContainer" >
+        <div class="SideBarContainer" id="SideBarContainer">
           <div class="SubContainerSideBar">
             <div class="containerImg">
-              <img class="ImgLogo" src="../Main/Imagens/MainLogoWhite.png" alt="" />
+              <img
+                class="ImgLogo"
+                src="../Main/Imagens/MainLogoWhite.png"
+                alt=""
+              />
             </div>
 
             <ul class="ListLinks">
@@ -140,7 +144,7 @@
                     d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"
                   />
                 </svg> -->
-                <a onclick="navigationWeb('Main/')">
+                <a onclick="navigationWeb('CodigoSite/Main/')">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 576 512"
@@ -154,9 +158,11 @@
                   Dashboard
                 </a>
               </li>
-          
+
               <li class="itemList About">
-                <a onclick="navigationWeb('CodigoSite/Maquinaria/machine.html')">
+                <a
+                  onclick="navigationWeb('CodigoSite/Maquinaria/machine.html')"
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
@@ -184,7 +190,6 @@
                     />
                   </svg>
                   <a
-                    
                     onclick="navigationWeb('CodigoSite/Participantes/Participantes.html')"
                     >Sobre o time</a
                   >
@@ -192,12 +197,15 @@
               </li>
             </ul>
           </div>
-          <div class="Exit" id="Exit" onclick="navigationWeb('CodigoSite/Login/index.html')">
+          <div
+            class="Exit"
+            id="Exit"
+            onclick="navigationWeb('CodigoSite/Login/index.html')"
+          >
             <svg
               class="Saida"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
-              
             >
               <path
                 fill="#ffffff"
@@ -216,7 +224,6 @@
       </div>
 
       <div class="ContainerNavbar">
-        
         <div class="subNavbarContainer" id="subNavbarContainer">
           <h3 class="TextSubNavContainer">Olá, Neves!</h3>
           <div class="containerData calendar">
@@ -231,13 +238,10 @@
               />
             </svg>
 
-            <h4
-              id="IconSubNavConainerText"
-              class="IconSubNavConainerText"
-            ></h4>
+            <h4 id="IconSubNavConainerText" class="IconSubNavConainerText"></h4>
           </div>
         </div>
-        <div class="title">
+        <div class="title" id="title">
           <h1>Conheça nosso Time</h1>
         </div>
 
@@ -277,15 +281,18 @@
                 <div class="I">
                   <p>Isadora Scapatice</p>
                   <br />
-                  <div class="number">
+                  <div class="number" id="number">
                     <p>1</p>
                   </div>
                   <br />
-                  <div class="position">
+                  <div class="position" id="position">
                     <p>FrontEnd/Design</p>
                   </div>
                   <br />
-                  <div class="GitHub" onclick="window.open('https://github.com/Isadorq', '_blank')"
+                  <div
+                    class="GitHub" id="GitHub"
+                    onclick="window.open('https://github.com/Isadorq', '_blank')"
+                  >
                     <p>GitHub</p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -297,7 +304,7 @@
                       />
                     </svg>
                   </div>
-                  <div class="Linkedin" onclick="window.location.href = ''">
+                  <div class="Linkedin" id="Linkedin" onclick="window.location.href = ''">
                     <p>Linkedin</p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -320,15 +327,15 @@
                 <div class="L">
                   <p>Leonardo Rodrigues</p>
                   <br />
-                  <div class="number">
+                  <div class="number" id="number">
                     <p>2</p>
                   </div>
                   <br />
-                  <div class="position">
+                  <div class="position" id="position">
                     <p>BackEnd/Automação</p>
                   </div>
                   <br />
-                  <div class="GitHub" onclick="window.location.href = ''">
+                  <div class="GitHub" id="GitHub" onclick="window.location.href = ''">
                     <p>GitHub</p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -340,7 +347,7 @@
                       />
                     </svg>
                   </div>
-                  <div class="LiNkedin" onclick="window.location.href = ''">
+                  <div class="LiNkedin" id="Linkedin" onclick="window.location.href = ''">
                     <p>LinkeDin</p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -363,17 +370,17 @@
                 <div class="T">
                   <p>Thiago Alves</p>
                   <br />
-                  <div class="number">
+                  <div class="number" id="number">
                     <p>3</p>
                   </div>
                   <br />
-                  <div class="position">
+                  <div class="position" id="position">
                     <p>FullStack/PO</p>
                   </div>
 
                   <br />
                   <div
-                    class="GitHub"
+                    class="GitHub" id="GitHub"
                     onclick="window.open('https://github.com/43223423', '_blank')"
                   >
                     <p>GitHub</p>
@@ -388,7 +395,7 @@
                     </svg>
                   </div>
                   <div
-                    class="Linkedin"
+                    class="Linkedin" id="Linkedin"
                     onclick="window.open('https://www.linkedin.com/in/thiago-alves17/','_blank')"
                   >
                     <p>Linkedin</p>
@@ -428,16 +435,16 @@
                 <div class="W">
                   <p>William Costa</p>
                   <br />
-                  <div class="number">
+                  <div class="number" id="number">
                     <p>4</p>
                   </div>
                   <br />
-                  <div class="position">
+                  <div class="position" id="position">
                     <p>BackEnd/DBA</p>
                   </div>
                   <br />
                   <br />
-                  <div class="GitHub" onclick="window.location.href = ''">
+                  <div class="GitHub" id="GitHub" onclick="window.location.href = ''">
                     <p>GitHub</p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -449,7 +456,7 @@
                       />
                     </svg>
                   </div>
-                  <div class="linkedin" onclick="window.location.href = ''">
+                  <div class="linkedin" id="Linkedin" onclick="window.location.href = ''">
                     <p>Linkedin</p>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -470,15 +477,15 @@
               <div class="I" id="SecondImage">
                 <p>Isadora Scapatice</p>
                 <br />
-                <div class="number">
+                <div class="number" id="number">
                   <p>1</p>
                 </div>
                 <br />
-                <div class="position">
+                <div class="position" id="position">
                   <p>FrontEnd/Design</p>
                 </div>
                 <br />
-                <div class="GitHub" onclick="window.location.href = ''">
+                <div class="GitHub" id="GitHub" onclick="window.location.href = ''">
                   <p>GitHub</p>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                     <path
@@ -487,7 +494,7 @@
                     />
                   </svg>
                 </div>
-                <div class="Linkedin" onclick="window.location.href = ''">
+                <div class="Linkedin" id="Linkedin" onclick="window.location.href = ''">
                   <p>Linkedin</p>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path
@@ -503,15 +510,15 @@
               <div class="L" id="SecondImage">
                 <p>Leonardo Rodrigues</p>
                 <br />
-                <div class="number">
+                <div class="number" id="number">
                   <p>2</p>
                 </div>
                 <br />
-                <div class="position">
+                <div class="position" id="position">
                   <p>BackEnd/Automação</p>
                 </div>
                 <br />
-                <div class="GitHub" onclick="window.location.href = ''">
+                <div class="GitHub" id="GitHub" onclick="window.location.href = ''">
                   <p>GitHub</p>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                     <path
@@ -520,7 +527,7 @@
                     />
                   </svg>
                 </div>
-                <div class="LiNkedin" onclick="window.location.href = ''">
+                <div class="LiNkedin" id="Linkedin" onclick="window.location.href = ''">
                   <p>LinkeDin</p>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path
@@ -536,17 +543,17 @@
               <div class="T" id="SecondImage">
                 <p>Thiago Alves</p>
                 <br />
-                <div class="number">
+                <div class="number" id="number">
                   <p>3</p>
                 </div>
                 <br />
-                <div class="position">
+                <div class="position" id="position">
                   <p>FullStack/PO</p>
                 </div>
 
                 <br />
                 <div
-                  class="GitHub"
+                  class="GitHub" id="GitHub"
                   onclick="window.open('https://github.com/43223423', '_blank')"
                 >
                   <p>GitHub</p>
@@ -558,7 +565,7 @@
                   </svg>
                 </div>
                 <div
-                  class="Linkedin"
+                  class="Linkedin" id="Linkedin"
                   onclick="window.open('https://www.linkedin.com/in/thiago-alves17/','_blank')"
                 >
                   <p>Linkedin</p>
@@ -588,16 +595,16 @@
               <div class="W" id="SecondImage">
                 <p>William Costa</p>
                 <br />
-                <div class="number">
+                <div class="number" id="number">
                   <p>4</p>
                 </div>
                 <br />
-                <div class="position">
+                <div class="position" id="position">
                   <p>BackEnd/DBA</p>
                 </div>
                 <br />
                 <br />
-                <div class="GitHub" onclick="window.location.href = ''">
+                <div class="GitHub" id="GitHub" onclick="window.location.href = ''">
                   <p>GitHub</p>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
                     <path
@@ -606,7 +613,7 @@
                     />
                   </svg>
                 </div>
-                <div class="linkedin" onclick="window.location.href = ''">
+                <div class="linkedin" id="Linkedin" onclick="window.location.href = ''">
                   <p>Linkedin</p>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                     <path
@@ -621,7 +628,7 @@
         </div>
       </div>
     </div>
-    <script src="../Main/main.js" ></script>
-    <script src="Participantes.js" ></script>
+    <script src="../Main/main.js"></script>
+    <script src="Participantes.js"></script>
   </body>
 </html>

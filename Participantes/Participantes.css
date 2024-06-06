@@ -24,6 +24,10 @@ body,
 .IconNavBarTheme:hover {
   cursor: pointer;
 }
+.IconNavBarTheme {
+  height: 33px;
+  margin: 8%;
+}
 
 .NavBarContainer {
   height: 100px;
@@ -31,7 +35,6 @@ body,
   display: flex;
   align-items: center;
   padding: 10px;
-
   background-color: #0450c2;
   display: flex;
   justify-content: space-between;
@@ -40,6 +43,10 @@ body,
 
 .NavBarContainerNone {
   display: none;
+}
+.SideBarContainer{
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
 }
 
 .containerOptions,
@@ -116,7 +123,6 @@ body,
 }
 .Dash:hover {
   cursor: pointer;
-  background-color: blue;
 }
 
 .Not:hover {
@@ -157,7 +163,6 @@ body,
   width: 500px;
   border-radius: 20px;
 }
-
 
 .ContainerCharts {
   display: flex;
@@ -456,7 +461,9 @@ p {
 .subContainerImgParti {
   display: none;
 }
-
+.Exit :hover {
+  cursor: pointer;
+}
 @media screen and (max-width: 1200px) {
 }
 @media screen and (max-width: 992px) {

@@ -32,7 +32,7 @@ function showSideBar() {
   } else if (WidthScreen >= 992 && WidthScreen <= 1200) {
     document.getElementById("containerIconNavBar").style.marginLeft = "50%";
   } else if (WidthScreen >= 1200 && WidthScreen <= 1700) {
-    document.getElementById("containerIconNavBar").style.marginLeft = "30%";
+    document.getElementById("containerIconNavBar").style.marginLeft = "39%";
   } else {
     document.getElementById("containerIconNavBar").style.marginLeft = "16%";
   }
@@ -42,7 +42,7 @@ function FunDate() {
   var TextDate = document.getElementById("IconSubNavConainerText");
   const Data = new Date();
 
-  return (TextDate.innerText = `${
+  TextDate.innerText = `${
     Data.getDate().toString().length === 1
       ? `0${Data.getDate()}`
       : Data.getDate()
@@ -50,17 +50,22 @@ function FunDate() {
     Data.getMonth().toString().length === 1
       ? `0${Data.getMonth() + 1}`
       : Data.getMonth() + 1
-  }/${Data.getFullYear()}`);
+  }/${Data.getFullYear()}`;
+  
 }
 FunDate();
 
-let BooleanTheme = false;
+let BooleanTheme = false
 function changeTheme() {
   BooleanTheme = !BooleanTheme;
 
   if (BooleanTheme) {
     document.getElementById("SunIcon").style.display = "block";
     document.getElementById("MoonIcon").style.display = "none";
+
+    if (document.getElementById("title")) {
+      document.getElementById("title").style.backgroundColor = "#535353";
+    }
 
     document.getElementById("SideBarContainer").style.backgroundColor =
       "#535353";
@@ -83,7 +88,9 @@ function changeTheme() {
   } else {
     document.getElementById("SunIcon").style.display = "none";
     document.getElementById("MoonIcon").style.display = "block";
-
+    if (document.getElementById("title")) {
+      document.getElementById("title").style.backgroundColor = "#0450c2";
+    }
     document.getElementById("SideBarContainer").style.backgroundColor =
       "#0450c2";
     document.getElementById("NavBarContainer").style.backgroundColor =
@@ -103,24 +110,24 @@ function changeTheme() {
   }
 }
 
-let slideIndex = 1;
-
-// Next/previous controls
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-}
 
 function navigationWeb(url) {
   var HostName = window.location.hostname;
   var Port = window.location.port;
+
   if (HostName === "127.0.0.1") {
-    return (window.location.href = `http://127.0.0.1:${Port}/${url}`);
+    window.location.href = `http://127.0.0.1:${Port}/${url}`;
   } else if (HostName === "automationmange.vercel.app") {
-    return (window.location.href = `http://automationmange.vercel.app/${url}`);
+    var UrlText = url.split("/");
+
+    UrlText = UrlText.filter((item) => item !== "CodigoSite");
+
+    var currentUrlParts = window.location.href.split("/");
+    currentUrlParts = currentUrlParts.filter((item) => item !== "Main");
+
+    var newUrl = `https://automationmange.vercel.app/${UrlText.join("/")}`;
+    console.log(newUrl);
+
+    window.location.href = newUrl;
   }
 }

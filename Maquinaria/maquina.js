@@ -5,37 +5,34 @@ function hideUserSettings() {
   document.getElementById("containerUserSettings").style.display = "none";
 }
 
-function RefreshButton() {
-  window.location.reload();
-}
-
 function hideSideBar() {
-  document.getElementById("SideBarContainer").style.display = "none";
+  document.getElementById("SideBarContainer").style.transform =
+    "translateX(-100%)";
   document.getElementById("XIcon").style.display = "none";
   document.getElementById("MenuIcon").style.display = "flex";
   document.getElementById("containerIconNavBar").style.marginLeft = "0%";
   document.getElementById("MainComponentsHome").style.marginLeft = "";
 }
 
-var WidthScreen = screen.width
-
 function showSideBar() {
-  document.getElementById("SideBarContainer").style.display = "flex";
+  let WidthScreen = screen.width;
+  document.getElementById("SideBarContainer").style.transform =
+    "translateX(0%)";
   document.getElementById("XIcon").style.display = "flex";
   document.getElementById("MenuIcon").style.display = "none";
 
   if (WidthScreen <= 430) {
     document.getElementById("containerIconNavBar").style.marginLeft = "43%";
-  } else if (WidthScreen <= 576) {
+  } else if (WidthScreen >= 430 && WidthScreen <= 576) {
     document.getElementById("containerIconNavBar").style.marginLeft = "43%";
-  } else if (WidthScreen <= 768) {
+  } else if (WidthScreen >= 576 && WidthScreen <= 768) {
     document.getElementById("containerIconNavBar").style.marginLeft = "43%";
-  } else if (WidthScreen <= 992) {
-    document.getElementById("containerIconNavBar").style.marginLeft = "53%";
-  } else if (WidthScreen <= 1200) {
+  } else if (WidthScreen >= 768 && WidthScreen <= 992) {
     document.getElementById("containerIconNavBar").style.marginLeft = "43%";
-  } else if (WidthScreen <= 1700) {
-    document.getElementById("containerIconNavBar").style.marginLeft = "43%";
+  } else if (WidthScreen >= 992 && WidthScreen <= 1200) {
+    document.getElementById("containerIconNavBar").style.marginLeft = "50%";
+  } else if (WidthScreen >= 1200 && WidthScreen <= 1700) {
+    document.getElementById("containerIconNavBar").style.marginLeft = "19%";
   } else {
     document.getElementById("containerIconNavBar").style.marginLeft = "16%";
   }
@@ -99,12 +96,13 @@ function changeTheme() {
       "#535353";
     document.getElementById("containerUserSettings").style.backgroundColor =
       "#535353";
-
+    document.getElementById("Exit").style.backgroundColor = "#747474";
     document.getElementById("prev").style.backgroundColor = "#535353";
     document.getElementById("next").style.backgroundColor = "#535353";
+    document.getElementById("Text").style.backgroundColor = "white";
     document.getElementById("subNavbarContainer").style.boxShadow = "none";
-    
-    
+
+    document.getElementById("MainContainer").style.backgroundColor = "#767676";
     document.querySelectorAll(".subContainerOptions").forEach((item) => {
       item.style.backgroundColor = "#535353";
     });
@@ -112,6 +110,7 @@ function changeTheme() {
   } else {
     document.getElementById("SunIcon").style.display = "none";
     document.getElementById("MoonIcon").style.display = "block";
+    document.getElementById("MainContainer").style.backgroundColor = "white";
 
     document.getElementById("SideBarContainer").style.backgroundColor =
       "#0450c2";
@@ -125,7 +124,7 @@ function changeTheme() {
     document.getElementById("next").style.backgroundColor = "#0450c2";
     document.getElementById("containerUserSettings").style.backgroundColor =
       "#0450c2";
-    
+    document.getElementById("Exit").style.backgroundColor = "#0073DC";
 
     document.querySelectorAll(".subContainerOptions").forEach((item) => {
       item.style.backgroundColor = "#0450c2";
@@ -137,9 +136,24 @@ function changeTheme() {
 function navigationWeb(url) {
   var HostName = window.location.hostname;
   var Port = window.location.port;
+
   if (HostName === "127.0.0.1") {
-    return (window.location.href = `http://127.0.0.1:${Port}/${url}`);
+    window.location.href = `http://127.0.0.1:${Port}/${url}`;
   } else if (HostName === "automationmange.vercel.app") {
-    return (window.location.href = `http://automationmange.vercel.app/${url}`);
+    var UrlText = url.split("/");
+
+    UrlText = UrlText.filter((item) => item !== "CodigoSite");
+
+    var currentUrlParts = window.location.href.split("/");
+    currentUrlParts = currentUrlParts.filter((item) => item !== "Main");
+
+    var newUrl = `https://automationmange.vercel.app/${UrlText.join("/")}`;
+    console.log(newUrl);
+
+    window.location.href = newUrl;
   }
+}
+
+function RefreshButton() {
+  window.location.reload();
 }

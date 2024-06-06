@@ -1,10 +1,16 @@
-let UrlPecaPequena = "http://localhost:3000/chart-data-pequena";
-let UrlPecaMedia = "http://localhost:3000/chart-data-media";
-let UrlPecaGrande = "http://localhost:3000/chart-data-grande";
+let UrlPecaPequena = "https://apinodejs-8tz6.onrender.com/chart-data-pequena";
+let UrlPecaMedia = "https://apinodejs-8tz6.onrender.com/chart-data-media";
+let UrlPecaGrande = "https://apinodejs-8tz6.onrender.com/chart-data-grande";
 
 async function fetchData(url) {
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      method: "GET",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -12,7 +18,7 @@ async function fetchData(url) {
     return data.length;
   } catch (error) {
     console.error("Error fetching data:", error);
-    return null; // Return null or a suitable value to indicate an error
+    return null; //
   }
 }
 
@@ -24,126 +30,101 @@ async function fetchAllData() {
       fetchData(UrlPecaGrande),
     ]);
 
-    // Update the chart with the fetched data
+    //
     updateChart(results);
   } catch (error) {
     console.error("Error fetching all data:", error);
   }
 }
 
+let areaChart, pieChart, lineChart, barChart;
+
 function updateChart(DataPeca) {
-  var areaData = {
-    labels: ["Peça Pequena", "Peça Média", "Peça Grande"],
-    datasets: [
-      {
-        label: "Dados de Exemplo",
-        data: DataPeca,
-        backgroundColor: "rgba(54, 162, 235, 0.2)", // Cor da área
-        borderColor: "rgba(54, 162, 235, 1)", // Cor da linha
-        borderWidth: 1,
-      },
-    ],
-  };
+  const areaChartCtx = document.getElementById("areaChart").getContext("2d");
+  const pieChartCtx = document.getElementById("pie-chart").getContext("2d");
+  const lineChartCtx = document.getElementById("areaChart1").getContext("2d");
+  const barChartCtx = document.getElementById("chartBar").getContext("2d");
 
-  var areaOptions = {
-    responsive: true,
-    scales: {
-      x: {
-        grid: {
-          display: false, // Oculta linhas de grade no eixo X
-        },
-      },
-      y: {
-        beginAtZero: true, // Começa o eixo Y em zero
-      },
-    },
-  };
+  if (areaChart) areaChart.destroy();
+  if (pieChart) pieChart.destroy();
+  if (lineChart) lineChart.destroy();
+  if (barChart) barChart.destroy();
 
-  new Chart(document.getElementById("areaChart"), {
-    type: "line", // Tipo de gráfico de área é linha
-    data: areaData,
-    options: areaOptions,
-  });
-
-  const pieChartData = {
-    labels: ["Peça Pequena", "Peça Média", "Peça Grande"],
-    datasets: [
-      {
-        label: "Quantidade de peças",
-        backgroundColor: ["#0450C2", "#0073DC", "#0D98FF"],
-        data: DataPeca,
-      },
-    ],
-  };
-
-  const pieChartOptions = {
-    responsive: true,
-    title: {
-      display: true,
-      text: "Predicted world population (millions) in 2050",
-    },
-  };
-
-  new Chart(document.getElementById("pie-chart"), {
-    type: "pie",
-    data: pieChartData,
-    options: pieChartOptions,
-  });
-
-  var scatterData = {
-    datasets: [
-      {
-        label: "Dados de Exemplo",
-        
-        data: [
-          {
-            x: 10,
-            y: 20,
-          },
-          {
-            x: 15,
-            y: 25,
-          },
-          {
-            x: 20,
-            y: 30,
-          },
-          
-        ],
-        backgroundColor: "#0073DC", // Cor do ponto
-        borderColor: "#00226C", // Cor da borda do ponto
-        borderWidth: 1,
-      },
-    ],
-  };
-
-  var scatterOptions = {
-    responsive: true,
-    scales: {
-      x: {
-        type: "linear",
-        position: "bottom",
-      },
-      y: {
-        type: "linear",
-        position: "left",
-      },
-    },
-  };
-
-  var ctx = document.getElementById("areaChart1").getContext("2d");
-  var LineChart = new Chart(ctx, {
+  // Configurações e criação dos gráficos
+  areaChart = new Chart(areaChartCtx, {
     type: "line",
     data: {
       labels: ["Peça Pequena", "Peça Média", "Peça Grande"],
       datasets: [
         {
-          label: "Page Views",
+          label: "Peças Pequenas",
+          data: [DataPeca[0], DataPeca[2], DataPeca[1]],
+          backgroundColor: "#0450C2",
+          borderColor: "rgba(54, 162, 235, 1)",
+          borderWidth: 1,
+        },
+        {
+          label: "Peças Média",
+          data: [DataPeca[2], DataPeca[1], DataPeca[0]],
+          backgroundColor: "#0073DC",
+          borderColor: "rgba(54, 162, 235, 1)",
+          borderWidth: 1,
+        },
+        {
+          label: "Peças Grande",
+          data: [DataPeca[1], DataPeca[0], DataPeca[2]],
+          backgroundColor: "#0D98FF",
+          borderColor: "rgba(54, 162, 235, 1)",
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          grid: { display: false },
+        },
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+  pieChart = new Chart(pieChartCtx, {
+    type: "pie",
+    data: {
+      labels: ["Peça Pequena", "Peça Média", "Peça Grande"],
+      datasets: [
+        {
+          label: "Quantidade de peças",
+          backgroundColor: ["#0450C2", "#0073DC", "#0D98FF"],
           data: DataPeca,
-          backgroundColor: "rgba(75, 192, 192, 0.5)",
-          borderColor: "rgba(75, 192, 192, 1)",
-          borderWidth: 2,
-          fill: "start",
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      title: {
+        display: true,
+        text: "Predicted world population (millions) in 2050",
+      },
+    },
+  });
+
+  lineChart = new Chart(lineChartCtx, {
+    type: "line",
+    data: {
+      labels: ["Peça Pequena", "Peça Média", "Peça Grande"],
+      datasets: [
+        {
+          label: "Peças Pequenas",
+          data: [DataPeca[0], DataPeca[2], DataPeca[1]],
+          backgroundColor: "#0450C2",
+          borderColor: "rgba(54, 162, 235, 1)",
+          borderWidth: 1,
+          fill: true,
         },
       ],
     },
@@ -159,79 +140,41 @@ function updateChart(DataPeca) {
         },
       },
       layout: {
-        padding: {
-          left: 20,
-          right: 20,
-          top: 20,
-          bottom: 20,
-        },
+        padding: { left: 20, right: 20, top: 20, bottom: 20 },
       },
     },
   });
 
-  DataPeca.forEach(element => {
-    return {
-          
-      label: "Quantidade das Peças",
-
-      backgroundColor: ["#0450C2", "#0073DC", "#0D98FF"],
-
-      data: DataPeca,
-    }   
-  });
-
-  var BarChart = new Chart(document.getElementById("chartBar"), {
+  barChart = new Chart(barChartCtx, {
     type: "bar",
     data: {
       labels: ["Peça Pequena", "Peça Média", "Peça Grande"],
-      // Conjuntos de dados
       datasets: [
         {
-          
           label: "Quantidade das Peças",
-
           backgroundColor: ["#0450C2", "#0073DC", "#0D98FF"],
-
           data: DataPeca,
         },
       ],
     },
     options: {
       responsive: true,
-      legend: {
-        display: false,
-      },
+      legend: { display: false },
       title: {
-        // Exibir o título
         display: true,
-        // Texto do título
         text: "Predicted world population (millions) in 2050",
       },
     },
   });
 }
 
-fetchAllData();
+let ReloadBoolean = false;
+
+window.onload = function () {
+  fetchAllData();
+  setInterval(fetchAllData, 5000);
+};
 
 function RefreshButton() {
   window.location.reload();
 }
-
-// var ListChart = [BarChart, LineChart, PieChart, rangeBarChart];
-
-// var WidthChart = screen.width;
-
-// if (WidthChart <= 430) {
-//   ListChart.forEach((item) => {
-//     if (item == BarChart) {
-//       item.canvas.parentNode.style.width = "390px";
-//     } else if (item == LineChart) {
-//       item.canvas.parentNode.style.width = "350px";
-//     } else if (item == areaCharts) {
-//       item.canvas.parentNode.style.width = "372px";
-//     } else {
-//       item.canvas.parentNode.style.width = "350px";
-//     }
-//   });
-// } else if (WidthChart <= 570) {
-// }

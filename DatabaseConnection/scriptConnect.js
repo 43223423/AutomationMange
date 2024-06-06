@@ -11,8 +11,6 @@ const client = new MongoClient(uri, {
   },
 });
 
-
-
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
@@ -28,9 +26,7 @@ async function run() {
     await colletion
       .find({})
       .toArray()
-      .then((respo) => {
-        
-      })
+      .then((respo) => {})
       .catch((erro) => {
         console.log(erro);
       });
@@ -47,11 +43,10 @@ client.db("admin").command({ ping: 1 });
 const Data = new Date();
 const database = client.db("AutomationMange");
 let List = ["PecasGrandes", "PecasMedias", "PecasPequenas"];
-let ListNUmber = [9, 50, 100]
 
-// List.forEach((element) => {
+List.forEach((element) => {
 for (let index = 0; index < 100; index++) {
-  const colletion = database.collection("PecasPequenas");
+  const colletion = database.collection("PecasMedias");
   colletion.insertOne({
     data: `${
       Data.getDate().toString().length === 1
@@ -63,8 +58,8 @@ for (let index = 0; index < 100; index++) {
         : Data.getMonth() + 1
     }/${Data.getFullYear()}`,
   });
-  
+
 }
 console.log("Add");
-// });
+});
 console.log("Sucesso");
