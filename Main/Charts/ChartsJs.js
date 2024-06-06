@@ -6,16 +6,15 @@ async function fetchData(url) {
   try {
     const response = await fetch(url, {
       method: "GET",
-      mode: "no-cors",
+      mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+    }).catch((err) => console.log(err));
+
     const data = await response.json();
-    return data.length;
+    console.log(data);
+    return data.lengthCollen;
   } catch (error) {
     console.error("Error fetching data:", error);
     return null; //
