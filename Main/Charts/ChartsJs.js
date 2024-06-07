@@ -2,6 +2,9 @@ let UrlPecaPequena = "https://apinodejs-8tz6.onrender.com/chart-data-pequena";
 let UrlPecaMedia = "https://apinodejs-8tz6.onrender.com/chart-data-media";
 let UrlPecaGrande = "https://apinodejs-8tz6.onrender.com/chart-data-grande";
 
+
+// Função para pegar os dados da API
+// E retornando a quantidade de dados inseridos por Tabelas
 async function fetchData(url) {
   try {
     const response = await fetch(url, {
@@ -13,7 +16,7 @@ async function fetchData(url) {
     }).catch((err) => console.log(err));
 
     const data = await response.json();
-    console.log(data);
+    
     return data.lengthCollen;
   } catch (error) {
     console.error("Error fetching data:", error);
@@ -27,6 +30,7 @@ async function fetchAllData() {
       fetchData(UrlPecaPequena),
       fetchData(UrlPecaMedia),
       fetchData(UrlPecaGrande),
+      // Passando a URL de cada peça separadamente
     ]);
 
     //
@@ -171,7 +175,7 @@ let ReloadBoolean = false;
 
 window.onload = function () {
   fetchAllData();
-  setInterval(fetchAllData, 5000);
+  setInterval(fetchAllData(), 5000);
 };
 
 function RefreshButton() {

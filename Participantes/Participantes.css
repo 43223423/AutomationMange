@@ -188,6 +188,7 @@ body,
   justify-content: space-between;
   padding: 10px;
   background-color: #0450c2;
+  margin-top: 20px;
 }
 .TextSubNavContainer {
   font-size: 20px;
@@ -446,6 +447,9 @@ p {
   justify-content: center;
   flex-direction: column;
   margin-top: 100px;
+}
+.ContainerNavbar{
+  margin: 0% !important;
 }
 #ImagemParticipant {
   display: flex;
