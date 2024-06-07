@@ -598,3 +598,38 @@ p {
     flex-direction: column;
   }
 }
+@media screen and (max-width: 350px) {
+  .title{
+    font-size: 10px;
+  }
+  .containerImagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .subContainerAbout {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+  .Containerphotos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #ImagemParticipant {
+    display: none;
+  }
+  #SecondImage {
+    display: flex;
+  }
+  .subNavbarContainer {
+    margin: 0%;
+    margin-top: 10px;
+  }
+  .subContainerImgParti {
+    display: flex;
+    flex-direction: column;
+  }
+}

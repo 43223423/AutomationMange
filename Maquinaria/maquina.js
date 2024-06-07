@@ -81,25 +81,29 @@ let BooleanTheme = false;
 function changeTheme() {
   BooleanTheme = !BooleanTheme;
 
-  console.log(BooleanTheme);
   if (BooleanTheme) {
     document.getElementById("SunIcon").style.display = "block";
     document.getElementById("MoonIcon").style.display = "none";
 
     document.getElementById("SideBarContainer").style.backgroundColor =
       "#535353";
+    document.getElementById("MainComponentsHome").style.backgroundColor =
+      "#767676";
     document.getElementById("NavBarContainer").style.backgroundColor =
       "#535353";
     document.getElementById("containerOptions").style.backgroundColor =
       "#535353";
+    document.getElementById("Text").style.backgroundColor = "#767676";
     document.getElementById("subNavbarContainer").style.backgroundColor =
       "#535353";
     document.getElementById("containerUserSettings").style.backgroundColor =
       "#535353";
+    document.getElementById("SubTitleText").style.color = "white";
+    document.getElementById("TextSub").style.color = "white";
     document.getElementById("Exit").style.backgroundColor = "#747474";
     document.getElementById("prev").style.backgroundColor = "#535353";
     document.getElementById("next").style.backgroundColor = "#535353";
-    document.getElementById("Text").style.backgroundColor = "white";
+
     document.getElementById("subNavbarContainer").style.boxShadow = "none";
 
     document.getElementById("MainContainer").style.backgroundColor = "#767676";
@@ -114,6 +118,10 @@ function changeTheme() {
 
     document.getElementById("SideBarContainer").style.backgroundColor =
       "#0450c2";
+    document.getElementById("SubTitleText").style.color = "black";
+    document.getElementById("MainComponentsHome").style.backgroundColor =
+      "white";
+    document.getElementById("Text").style.backgroundColor = "black";
     document.getElementById("NavBarContainer").style.backgroundColor =
       "#0450c2";
     document.getElementById("containerOptions").style.backgroundColor =

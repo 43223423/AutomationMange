@@ -68,7 +68,7 @@ function RefreshButton() {
 function changeTheme() {
   BooleanTheme = !BooleanTheme;
 
-  console.log(BooleanTheme);
+  
   if (BooleanTheme) {
     document.getElementById("SunIcon").style.display = "block";
     document.getElementById("MoonIcon").style.display = "none";
@@ -83,6 +83,7 @@ function changeTheme() {
       "#535353";
     document.getElementById("containerUserSettings").style.backgroundColor =
       "#535353";
+   
     document.getElementById("Exit").style.backgroundColor = "#747474";
     document.getElementById("title").style.backgroundColor = "#535353";
 
@@ -94,6 +95,9 @@ function changeTheme() {
     });
     document.querySelectorAll(".number").forEach((item) => {
       item.style.backgroundColor = "#535353";
+    });
+    document.querySelectorAll(".name").forEach((item) => {
+      item.style.color = "white";
     });
     document.querySelectorAll(".position").forEach((item) => {
       item.style.color = "white";
@@ -123,7 +127,21 @@ function changeTheme() {
     document.getElementById("containerUserSettings").style.backgroundColor =
       "#0450c2";
     document.getElementById("Exit").style.backgroundColor = "#0073DC";
-
+    document.querySelectorAll(".number").forEach((item) => {
+      item.style.backgroundColor = "#0073dc";
+    });
+    document.querySelectorAll(".name").forEach((item) => {
+      item.style.color = "black";
+    });
+    document.querySelectorAll(".position").forEach((item) => {
+      item.style.color = "black";
+    });
+    document.querySelectorAll(".GitHub").forEach((item) => {
+      item.style.color = "black";
+    });
+    document.querySelectorAll(".Linkedin").forEach((item) => {
+      item.style.color = "black";
+    });
     document.getElementById("Exit").style.backgroundColor = "#0073DC";
     document.querySelectorAll(".subContainerOptions").forEach((item) => {
       item.style.backgroundColor = "#0450c2";
