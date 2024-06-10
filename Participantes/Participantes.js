@@ -68,7 +68,6 @@ function RefreshButton() {
 function changeTheme() {
   BooleanTheme = !BooleanTheme;
 
-  
   if (BooleanTheme) {
     document.getElementById("SunIcon").style.display = "block";
     document.getElementById("MoonIcon").style.display = "none";
@@ -83,7 +82,7 @@ function changeTheme() {
       "#535353";
     document.getElementById("containerUserSettings").style.backgroundColor =
       "#535353";
-   
+
     document.getElementById("Exit").style.backgroundColor = "#747474";
     document.getElementById("title").style.backgroundColor = "#535353";
 

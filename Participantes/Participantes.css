@@ -540,7 +540,7 @@ p {
     align-items: center;
   }
   .subContainerAbout {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
   }
@@ -573,7 +573,7 @@ p {
     align-items: center;
   }
   .subContainerAbout {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
   }

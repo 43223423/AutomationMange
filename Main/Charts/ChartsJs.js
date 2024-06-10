@@ -175,7 +175,7 @@ let ReloadBoolean = false;
 
 window.onload = function () {
   fetchAllData();
-  setInterval(fetchAllData(), 5000);
+  setInterval(fetchAllData, 5000);
 };
 
 function RefreshButton() {

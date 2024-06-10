@@ -1,6 +1,6 @@
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri =
-  "mongodb+srv://thiagocontato1232:tNBa2wr7XO6EODbm@cluster0.ob27bb5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://thiagocontato1232:wECqChmisOkQlbSZ@cluster0.ob27bb5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
@@ -46,7 +46,7 @@ let List = ["PecasGrandes", "PecasMedias", "PecasPequenas"];
 
 List.forEach((element) => {
 for (let index = 0; index < 100; index++) {
-  const colletion = database.collection("PecasMedias");
+  const colletion = database.collection("PecasGrandes");
   colletion.insertOne({
     data: `${
       Data.getDate().toString().length === 1
